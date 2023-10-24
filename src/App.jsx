@@ -1,4 +1,5 @@
 import {useState} from "react";
+import "./App.scss";
 
 function App() {
     const [value, setValue] = useState('');
@@ -26,7 +27,12 @@ function App() {
             />
             <ul>
                 {todos.map((todo, id) => (
-                    <li key={id}>{todo}</li>
+                    <li className={todo} key={id}>
+                        <span className='status'
+                              onClick={() => handleChangeStatus(todo)}
+                        ></span>
+                        <span>{todo}</span>
+                    </li>
                 ))}
             </ul>
         </div>
