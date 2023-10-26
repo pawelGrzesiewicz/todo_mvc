@@ -1,0 +1,1 @@
+export const getId = (todos) => todos.length === 0 ? 1 : Math.max(...todos.map((task) => task.id)) + 1;
