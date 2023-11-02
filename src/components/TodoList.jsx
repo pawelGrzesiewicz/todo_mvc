@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem.jsx";
 
-function TodoList({todos, handleChangeStatus, handleDeleteTodo}) {
+function TodoList({filteredTodos, handleChangeStatus, handleDeleteTodo}) {
     return (
         <ul className="todos-list">
-            {todos.map((task) => (
+            {filteredTodos.map((task) => (
                 <TodoItem
-                    key= {task.id}
-                    task= {task}
-                    handleChangeStatus= {handleChangeStatus}
-                    handleDeleteTodo= {handleDeleteTodo}
+                    key={task.id}
+                    task={task}
+                    handleChangeStatus={handleChangeStatus}
+                    handleDeleteTodo={handleDeleteTodo}
                 />
             ))}
         </ul>
@@ -17,7 +17,7 @@ function TodoList({todos, handleChangeStatus, handleDeleteTodo}) {
 }
 
 TodoList.propTypes = {
-    todos: PropTypes.array.isRequired,
+    filteredTodos: PropTypes.array.isRequired,
     handleChangeStatus: PropTypes.func.isRequired,
     handleDeleteTodo: PropTypes.func.isRequired,
 }

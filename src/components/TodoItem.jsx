@@ -20,6 +20,7 @@ function TodoItem({task, handleChangeStatus, handleDeleteTodo}) {
         </li>
     );
 }
+
 TodoItem.propTypes = {
     task: PropTypes.shape({
         status: PropTypes.string.isRequired,
