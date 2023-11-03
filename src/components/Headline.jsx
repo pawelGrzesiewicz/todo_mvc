@@ -1,3 +1,3 @@
 export function Headline() {
-    return <h1>todos</h1>;
+    return <h1 className='todoapp__hdl'>todos</h1>;
 }

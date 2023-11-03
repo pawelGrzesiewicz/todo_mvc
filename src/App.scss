@@ -1,174 +1,175 @@
 body {
   background-color: rgb(245, 245, 245);
-}
 
+  .todoapp {
 
-.todoapp h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 100px;
-  font-weight: 100;
-  text-align: center;
-  color: rgba(175, 47, 47, 0.15);
-  text-rendering: optimizeLegibility;
-  margin: 40px 0 20px 0;
-}
-
-.todos {
-  width: 550px;
-  margin-inline: auto;
-  border: 1px solid rgb(230, 230, 230);
-  background-color: rgba(254, 254, 254, 1);
-
-  .todo-input {
-    padding: 16px 16px 16px 60px;
-    border: none;
-    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 24px;
-    line-height: 1.4;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-
-    &::placeholder {
-      color: rgb(230, 230, 230);
-      font-size: 24px;
-    }
-  }
-}
-
-.todos-list {
-  list-style: none;
-  padding-left: 0;
-
-  .todos-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgb(230, 230, 230);
-    word-break: break-all;
-    padding: 15px 15px 15px 15px;
-    line-height: 1.2;
-    transition: color 0.4s;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-    color: rgb(77, 77, 77);
-    letter-spacing: 1px;
-
-    &:hover {
-      .btn-delete {
-        opacity: 1;
-      }
+    &__hdl {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 100px;
+      font-weight: 100;
+      text-align: center;
+      color: rgba(175, 47, 47, 0.15);
+      text-rendering: optimizeLegibility;
+      margin: 40px 0 20px 0;
     }
 
-    .status {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid rgb(241 241 241);
-      display: inline-block;
-      margin: 10px;
-      background-color: white;
-      cursor: pointer;
+    .todos {
+      width: 550px;
+      margin-inline: auto;
+      border: 1px solid rgb(230, 230, 230);
+      background-color: rgba(254, 254, 254, 1);
 
-      &.done {
-        background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
-        background-position: -8px -5px;
-        border-color: transparent;
+        &__input {
+          padding: 16px 16px 16px 60px;
+          border: none;
+          box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+          box-sizing: border-box;
+          width: 100%;
+          font-size: 24px;
+          line-height: 1.4;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 100;
 
-        & + span {
-          text-decoration: line-through;
+          &::placeholder {
+            color: rgb(230, 230, 230);
+          }
         }
       }
     }
 
-    .btn-delete {
-      opacity: 0;
-      transition: all 200ms ease-in-out;
-      cursor: pointer;
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      margin-left: 400px;
-      overflow: hidden;
-      text-indent: -999px;
-      border: 0;
-      background-color: transparent;
+    .todos-list {
+      list-style: none;
+      padding-left: 0;
       position: relative;
 
-      &:after {
-        content: "x";
-        position: absolute;
-        top: -3px;
-        left: 0;
-        display: block;
-        width: 30px;
-        height: 30px;
-        text-indent: 0;
-        font-size: 30px;
-        line-height: 30px;
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid rgb(230, 230, 230);
+        word-break: break-all;
+        padding: 15px;
+        line-height: 1.2;
+        transition: color 0.4s;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 100;
-        font-family: sans-serif;
-        color: gray;
+        color: rgb(77, 77, 77);
+        letter-spacing: 1px;
+
+        &:hover {
+          .btn-delete {
+            opacity: 1;
+          }
+        }
+
+        .status {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid rgb(241 241 241);
+          display: inline-block;
+          margin: 10px;
+          background-color: white;
+          cursor: pointer;
+
+          &.done {
+            background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+            background-position: -8px -5px;
+            border-color: transparent;
+
+            & + span {
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        &__delete {
+          opacity: 0;
+          transition: all 200ms ease-in-out;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          overflow: hidden;
+          text-indent: -999px;
+          border: 0;
+          background-color: transparent;
+          position: relative;
+
+          &:after {
+            content: "x";
+            position: absolute;
+            top: -3px;
+            left: 0;
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-indent: 0;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 100;
+            font-family: sans-serif;
+            color: gray;
+          }
+        }
+
       }
     }
 
-  }
-}
 
+    .box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
+      &_counter {
+        color: #eed6d6;
+        padding: 10px;
+        font-weight: 300;
+        font-size: 14px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+      }
 
-.box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+      .view {
+        padding: 10px;
 
-  &_counter {
-    color: #eed6d6;
-    padding: 10px;
-    font-weight: 300;
-    font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
-  }
+        &_btn {
+          color: #eed6d6;
+          margin: 3px;
+          padding: 3px 7px;
+          font-weight: 300;
+          font-size: 14px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          background-color: transparent;
+          border: 0;
+          cursor: pointer;
 
-  .view {
-    padding: 10px;
-    &_btn {
-      color: #eed6d6;
-      margin: 3px;
-      padding: 3px 7px;
-      font-weight: 300;
-      font-size: 14px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
+          &:hover {
+            border: 1px solid #eed6d6;
+            border-radius: 3px;
+          }
+        }
 
-      &:hover {
-        border: 1px solid #eed6d6;
-        border-radius: 3px;
+        &_current {
+          border: 1px solid #eed6d6;
+          border-radius: 3px;
+        }
+      }
+
+      .btn {
+        color: #eed6d6;
+        padding: 10px;
+        font-weight: 300;
+        font-size: 14px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
-    &_current {
-      border: 1px solid #eed6d6;
-      border-radius: 3px;
-    }
   }
-
-  .btn {
-    color: #eed6d6;
-    padding: 10px;
-    font-weight: 300;
-    font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}

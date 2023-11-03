@@ -2,13 +2,15 @@ import PropTypes from "prop-types";
 
 function TodoAdd({todo, setTodo, addTodo}) {
     return (
-        <input
-            type="text"
-            className="todo-input"
-            value={todo}
-            onChange={(event) => setTodo(event.target.value)}
-            onKeyUp={addTodo}
-        />
+            <input
+                type="text"
+                className="todos__input"
+                placeholder='min 3 characters'
+                value={todo}
+                onChange={(event) => setTodo(event.target.value)}
+                onKeyUp={addTodo}
+            />
+
     );
 }
 
