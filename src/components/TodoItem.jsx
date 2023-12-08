@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 function TodoItem({task, handleChangeStatus, handleDeleteTodo}) {
     return (
-        <li className="todos__item" key={task.id}>
+        <li className="list__item" key={task.id}>
             <span
                 className={task.status === 'in progress' ? 'status' : 'status done'}
                 onClick={() => handleChangeStatus(task)}
             ></span>
             <span>{task.title}</span>
             <button
-                className="todos__delete"
+                className="list__item--delete"
                 onClick={() => handleDeleteTodo(task)}
             >delete
             </button>

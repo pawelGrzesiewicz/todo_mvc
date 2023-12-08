@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Counter({todos}) {
     return (
-        <p className="box_counter">{todos.filter((task) => task.status === 'in progress').length} items left</p>
+        <p className="box__counter">{todos.filter((task) => task.status === 'in progress').length} items left</p>
     );
 }
 

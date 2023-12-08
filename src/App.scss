@@ -16,15 +16,37 @@ body {
     .todos {
       width: 550px;
       margin-inline: auto;
-      border: 1px solid rgb(230, 230, 230);
       background-color: rgba(254, 254, 254, 1);
+      box-shadow:  0 2px 2px 1px rgba(0, 0, 0, 0.03);
 
-        &__input {
-          padding: 16px 16px 16px 60px;
-          border: none;
-          box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+      .input {
+        position: relative;
+        &__toggle {
+          position: absolute;
+          left: 15px;
+          top: calc(50% - 10px);
+          width: 20px;
+          height: 20px;
+          color: #e6e6e6;
+          transform: rotate(90deg);
+          &:hover {
+            color: #1a1a1a;
+          }
+          &::before {
+            content: '❯';
+            font-size: 22px;
+            position: relative;
+            left: 5px;
+            top: -2px;
+          }
+        }
+        &__add {
           box-sizing: border-box;
+          box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
           width: 100%;
+          color: #a4a4a4;
+          border: none;
+          padding: 16px 16px 16px 60px;
           font-size: 24px;
           line-height: 1.4;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -35,95 +57,102 @@ body {
           }
         }
       }
-    }
 
-    .todos-list {
-      list-style: none;
-      padding-left: 0;
-      position: relative;
+      .list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
 
-      &__item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border-bottom: 1px solid rgb(230, 230, 230);
-        word-break: break-all;
-        padding: 15px;
-        line-height: 1.2;
-        transition: color 0.4s;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 100;
-        color: rgb(77, 77, 77);
-        letter-spacing: 1px;
+        &__item {
+          display: flex;
+          align-items: center;
+          font-size: 24px;
+          gap: 10px;
+          border-bottom: 1px solid #eeeeee;
+          word-break: break-all;
+          padding: 0;
+          line-height: 1.2;
+          transition: color 0.4s;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 100;
+          color: #a4a4a4;
+          letter-spacing: 1px;
+          position: relative;
 
-        &:hover {
-          .btn-delete {
-            opacity: 1;
+          .status {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgb(241 241 241);
+            display: inline-block;
+            margin: 10px;
+            background-color: white;
+            cursor: pointer;
+
+            &.done {
+              background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+              background-position: -8px -5px;
+              border-color: transparent;
+
+              & + span {
+                text-decoration: line-through;
+                color: rgb(230, 230, 230);
+              }
+            }
           }
-        }
 
-        .status {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          border: 1px solid rgb(241 241 241);
-          display: inline-block;
-          margin: 10px;
-          background-color: white;
-          cursor: pointer;
+          &--delete {
+            opacity: 0;
+            transition: all 200ms ease-in-out;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            overflow: hidden;
+            text-indent: -999px;
+            border: 0;
+            background-color: transparent;
+            position: absolute;
+            top: 17%;
+            right: 30px;
+            color: #eed6d6;
 
-          &.done {
-            background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
-            background-position: -8px -5px;
-            border-color: transparent;
+            &:hover {
+              color: indianred;
+            }
 
-            & + span {
-              text-decoration: line-through;
+            &:after {
+              content: '×';
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: block;
+              width: 30px;
+              height: 30px;
+              text-indent: 0;
+              font-size: 30px;
+              line-height: 30px;
+              font-weight: 100;
+              font-family: sans-serif;
+              transition: color 0.2s ease-out;
+            }
+          }
+          &:hover {
+            .list__item--delete {
+              opacity: 1;
+              transition: 1s ease-in-out ;
             }
           }
         }
-
-        &__delete {
-          opacity: 0;
-          transition: all 200ms ease-in-out;
-          cursor: pointer;
-          width: 30px;
-          height: 30px;
-          display: inline-block;
-          overflow: hidden;
-          text-indent: -999px;
-          border: 0;
-          background-color: transparent;
-          position: relative;
-
-          &:after {
-            content: "x";
-            position: absolute;
-            top: -3px;
-            left: 0;
-            display: block;
-            width: 30px;
-            height: 30px;
-            text-indent: 0;
-            font-size: 30px;
-            line-height: 30px;
-            font-weight: 100;
-            font-family: sans-serif;
-            color: gray;
-          }
-        }
-
       }
     }
-
-
     .box {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      &_counter {
-        color: #eed6d6;
+      &__counter {
+        color: #777;
         padding: 10px;
         font-weight: 300;
         font-size: 14px;
@@ -134,8 +163,8 @@ body {
       .view {
         padding: 10px;
 
-        &_btn {
-          color: #eed6d6;
+        &__btn {
+          color: #777;
           margin: 3px;
           padding: 3px 7px;
           font-weight: 300;
@@ -151,14 +180,14 @@ body {
           }
         }
 
-        &_current {
+        &__current {
           border: 1px solid #eed6d6;
           border-radius: 3px;
         }
       }
 
       .btn {
-        color: #eed6d6;
+        color: #777;
         padding: 10px;
         font-weight: 300;
         font-size: 14px;
@@ -173,3 +202,4 @@ body {
       }
     }
   }
+}

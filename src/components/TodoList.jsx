@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem.jsx";
 
 function TodoList({filteredTodos, handleChangeStatus, handleDeleteTodo}) {
     return (
-        <ul className="todos-list">
+        <ul className="list">
             {filteredTodos.map((task) => (
                 <TodoItem
                     key={task.id}

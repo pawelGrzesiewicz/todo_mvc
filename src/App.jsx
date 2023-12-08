@@ -59,6 +59,9 @@ function App() {
         }
     };
 
+    const handleForToggleAllItemsStatus = (task) => {
+        task.status = 'done'
+    }
 
 
     return (
@@ -69,6 +72,7 @@ function App() {
                     todo={todo}
                     setTodo={setTodo}
                     addTodo={handleAddTodo}
+                    handleForToggleAllItemsStatus={handleForToggleAllItemsStatus}
                 />
                 <TodoList
                     filteredTodos={filteredTodos}
@@ -83,8 +87,6 @@ function App() {
                         handleFilterChange={handleFilterChange}
                     />
                     <DeleteAllBtn handleDeleteDoneTasks={handleDeleteDoneTasks}/>
-
-
                 </div>
             </section>
         </div>
